@@ -67,6 +67,7 @@
       span {
         font-family: 'Roboto Regular', sans-serif;
         font-size: 14px;
+        line-height: 18px;
         color: #052C65;
       }
     }
@@ -77,15 +78,13 @@
       left: 55px;
       padding: 7px 12px;
       width: 150px;
-      //display: none;
-      display: block; // пока для вёрстки видно
       z-index: 2;
-      border: 1px solid #052C65;
+      //border: 1px solid #052C65;
 
       a {
         font-family: 'Roboto Regular', sans-serif;
         font-size: 14px;
-        color: #052C65;
+        color: #0d6efd;
       }
     }
   }
