@@ -1,0 +1,22 @@
+.container-home {
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .charts-container {
+    margin-right: 100px;
+    margin-bottom: 100px;
+
+    .chart-wrapper {
+      max-width: 450px;
+      aspect-ratio: 1;
+      .divider {
+        width: 1px;
+        height: 100%;
+        background-color: #D9D9D9;
+      }
+    }
+
+  }
+}

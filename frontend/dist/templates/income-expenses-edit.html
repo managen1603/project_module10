@@ -1,0 +1,49 @@
+<div class="container-income-expenses-edit d-flex flex-column ps-0">
+
+    <h1 class="mb-5">Редактирование дохода/расхода</h1>
+
+    <div class="income-expenses-edit">
+        <label for="incomeExpensesName" class="visually-hidden"></label>
+        <select class="form-control form-control-edit" id="incomeExpensesName">
+            <option value="" disabled selected>Тип...</option>
+            <option value="Зарплата">Доход</option>
+            <option value="Продажа">Расход</option>
+        </select>
+    </div>
+    <div class="income-expenses-edit">
+        <label for="incomeExpensesCategory" class="visually-hidden">Категория</label>
+        <select class="form-control form-control-edit" id="incomeExpensesCategory">
+            <option value="" disabled selected>Категория...</option>
+            <option value="Доход">Депозиты</option>
+            <option value="Расход">Зарплата</option>
+            <option value="Инвестиции">Сбережения</option>
+            <option value="Инвестиции">Еда</option>
+            <option value="Инвестиции">Жилье</option>
+            <option value="Инвестиции">Здоровье</option>
+            <option value="Инвестиции">Кафе</option>
+            <option value="Инвестиции">Авто</option>
+            <option value="Инвестиции">Одежда</option>
+            <option value="Инвестиции">Развлечения</option>
+            <option value="Инвестиции">Счета</option>
+            <option value="Инвестиции">Спорт</option>
+        </select>
+    </div>
+    <div class="income-expenses-edit">
+        <label for="incomeExpensesAmount" class="visually-hidden">Сумма в $</label>
+        <input type="text" class="form-control form-control-edit" id="incomeExpensesAmount" placeholder="Сумма в $...">
+    </div>
+    <div class="income-expenses-edit">
+        <label for="incomeExpensesDate" class="visually-hidden">Дата</label>
+        <input type="date" class="form-control form-control-edit" id="incomeExpensesDate" placeholder="Дата...">
+    </div>
+    <div class="income-expenses-edit">
+        <label for="incomeExpensesComment" class="visually-hidden">Комментарий</label>
+        <input type="text" class="form-control form-control-edit" id="incomeExpensesComment" placeholder="Комментарий...">
+    </div>
+
+    <div class="button-color d-flex gap-2">
+        <a href="javascript:void(0)" class="btn btn-success py-2 px-3">Сохранить</a>
+        <a href="javascript:void(0)" class="btn btn-danger py-2 px-3">Отмена</a>
+    </div>
+
+</div>

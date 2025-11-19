@@ -1,0 +1,39 @@
+<div class="container-home d-flex flex-column ps-0">
+    <h1 class="pb-3 mb-5">Главная</h1>
+
+    <div class="button-gray d-flex align-items-center gap-3 flex-wrap">
+        <button type="button" class="btn btn-outline-secondary text-center py-2 px-2 active">Сегодня</button>
+        <button type="button" class="btn btn-outline-secondary text-center py-2 px-2">Неделя</button>
+        <button type="button" class="btn btn-outline-secondary text-center py-2 px-2">Месяц</button>
+        <button type="button" class="btn btn-outline-secondary text-center py-2 px-2">Год</button>
+        <button type="button" class="btn btn-outline-secondary text-center py-2 px-2">Все</button>
+        <button type="button" class="btn btn-outline-secondary text-center py-2 px-2">Интервал</button>
+        <div class="interval d-flex align-items-center gap-2 ms-3">
+            <label for="date-from" class="mb-0">с</label>
+            <input id="date-from" type="date" class="date-input form-control form-control-sm"/>
+            <label for="date-to" class="mb-0">по</label>
+            <input id="date-to" type="date" class="date-input form-control form-control-sm"/>
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap charts-container">
+
+        <div class="flex-fill d-flex flex-column align-items-center position-relative chart-block">
+            <h2 class="m-2">Доходы</h2>
+            <div class="chart-wrapper w-100">
+                <canvas id="incomeChart" class="w-100"></canvas>
+                <div class="divider position-absolute top-50 end-0 translate-middle-y"></div>
+            </div>
+        </div>
+
+        <div class="flex-fill d-flex flex-column align-items-center chart-block">
+            <h2 class="m-2">Расходы</h2>
+            <div class="chart-wrapper w-100">
+                <canvas id="expensesChart" class="w-100"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

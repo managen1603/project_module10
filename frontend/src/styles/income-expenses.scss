@@ -1,0 +1,59 @@
+.container-income-expenses {
+  .button-color {
+    margin-bottom: 40px;
+
+    a {
+      font-size: 14px;
+    }
+  }
+
+  .table-income-expenses {
+    table-layout: fixed;
+    width: 100%;
+
+    td, th {
+      background-color: #ffffff; // белый фон
+    }
+
+    th {
+      font-family: 'Roboto Bold', sans-serif;
+      font-size: 16px;
+      letter-spacing: 1.33333px;
+      color: #052C65;
+      border-bottom: 1px solid #dee2e6;
+      border-left: none;
+      border-right: none;
+    }
+
+    td {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 16px;
+      color: #000000;
+      border-top: 1px solid #dee2e6;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    td:last-child {
+      padding: 0;
+      text-align: right;
+      white-space: nowrap;
+
+      .btn {
+        padding: 0;
+        margin: 0;
+      }
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    tr:last-child {
+      td {
+        border-bottom: 1px solid #dee2e6;
+      }
+    }
+  }
+}

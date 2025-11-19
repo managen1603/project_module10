@@ -1,0 +1,19 @@
+.container-expenses-add {
+  .expenses-add {
+    margin-bottom: 20px;
+    input {
+      max-width: 397px;
+
+      &::placeholder {
+        font-family: 'Roboto Regular', sans-serif;
+        font-size: 15px;
+        color: #6C757D;
+      }
+    }
+  }
+
+.btn {
+  font-size: 14px;
+  color: #FFFFFF;
+  }
+}

@@ -1,0 +1,23 @@
+.container-income-expenses-edit {
+  .income-expenses-edit {
+    margin-bottom: 20px;
+    max-width: 397px;
+
+    select.form-control-edit {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 15px;
+      color: #6C757D;
+    }
+
+    input.form-control-edit {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 15px;
+      color: #6C757D;
+    }
+  }
+
+  .btn {
+    font-size: 14px;
+    color: #FFFFFF;
+  }
+}

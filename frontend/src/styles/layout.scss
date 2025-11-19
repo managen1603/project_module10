@@ -1,0 +1,100 @@
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #D9D9D9;
+  width: 219px;
+  margin-right: 60px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+
+  .logo-sidebar {
+    margin-top: 40px;
+    padding-bottom: 27px;
+  }
+
+  .nav {
+    padding-top: 60px;
+  }
+
+  ul.nav {
+    li {
+      a.nav-link {
+        font-family: 'Roboto Regular', sans-serif;
+        font-size: 14px;
+        color: #052C65;
+        display: flex;
+        align-items: center;
+
+        &.active {
+          background-color: #0d6efd;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  .nav-item {
+    > div {
+      a.nav-link {
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+
+        &.active {
+          background-color: #0d6efd;
+          color: #fff;
+        }
+
+        &:not(.active) {
+          color: #0d6efd;
+        }
+      }
+    }
+  }
+
+  .balance {
+    font-size: 14px;
+    color: #052C65;
+  }
+
+
+  .profile {
+    position: relative;
+    z-index: 1;
+
+    a {
+      span {
+        font-family: 'Roboto Regular', sans-serif;
+        font-size: 14px;
+        color: #052C65;
+      }
+    }
+
+    .profile-menu {
+      position: absolute;
+      top: 42px;
+      left: 55px;
+      padding: 7px 12px;
+      width: 150px;
+      //display: none;
+      display: block; // пока для вёрстки видно
+      z-index: 2;
+      border: 1px solid #052C65;
+
+      a {
+        font-family: 'Roboto Regular', sans-serif;
+        font-size: 14px;
+        color: #052C65;
+      }
+    }
+  }
+}
+
+.content-layout {
+  margin-top: 100px;
+  padding-right: 60px;
+}
+
+
+

@@ -1,0 +1,80 @@
+<main class="d-flex flex-nowrap min-vh-100">
+
+    <div class="sidebar d-flex flex-column flex-shrink-0 bg-white border-end border-1">
+
+        <div class="logo-sidebar d-flex justify-content-center align-items-center border-bottom border-1">
+            <a href="/" class="d-flex text-decoration-none">
+                <img src="/images/logo-sidebar.png" alt="Логотип" class="me-3">
+            </a>
+        </div>
+
+        <ul class="nav nav-pills flex-column m-3 mb-auto">
+
+            <li class="nav-item">
+                <a href="/" class="d-flex align-items-center nav-link pe-1" style="border-radius: 0.5rem">
+                    <i class="d-flex bi bi-house me-2 fs-6"></i>
+                    <span class="d-flex">Главная</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/income-expenses" class="d-flex align-items-center nav-link pe-1" style="border-radius: 0.5rem">
+                    <i class="d-flex bi bi-cash-coin me-2 fs-6"></i>
+                    <span class="d-flex">Доходы & Расходы</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <div class="d-flex flex-column"
+                     style="border: 1px solid #0d6efd; border-radius: 0.5rem; overflow: hidden;">
+                    <a href="#" class="d-flex justify-content-between align-items-center nav-link pe-1 active"
+                       style="border-radius: 0;">
+                        <span class="d-flex">Категории</span>
+                        <i class="d-flex bi bi-chevron-down me-2 fs-6"></i>
+                    </a>
+                    <!-- Блок с пунктами -->
+                    <a href="/income" class="d-flex align-items-center nav-link active" style="border-radius: 0;">
+                        <span class="d-flex">Доходы</span>
+                    </a>
+                    <a href="/expenses" class="d-flex align-items-center nav-link" style="border-radius: 0;">
+                        <span class="d-flex">Расходы</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="balance d-flex align-content-center p-3">
+            <div class="info">Баланс:<span class="ms-2 text-primary">500$</span></div>
+        </div>
+
+        <div class="profile d-block p-3 pt-4 pb-5 border-top border-1">
+            <a href="#" class="d-flex align-items-center text-decoration-none">
+                <img src="/images/user.png" class="img-circle me-3" alt="Пользователь">
+                <span>Имя Фамилия</span>
+            </a>
+
+            <!-- ВЫПАДАЮЩЕЕ МЕНЮ (для вёрстки — ПОКА ВИДИМОЕ) -->
+            <div class="profile-menu mt-3 rounded">
+                <a href="/logout" class="d-flex text-decoration-none">Выйти</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="content-layout b-example-divider b-example-vr flex-grow-1 w-100" id="content-layout"></div>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+

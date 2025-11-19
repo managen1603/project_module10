@@ -1,0 +1,22 @@
+.container-income-expenses-add {
+  .income-expenses-add {
+    margin-bottom: 20px;
+    max-width: 397px;
+
+    select.form-control-add {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 15px;
+      color: #6C757D;
+    }
+    input.form-control-add {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 15px;
+      color: #6C757D;
+    }
+  }
+
+  .btn {
+    font-size: 14px;
+    color: #FFFFFF;
+  }
+}

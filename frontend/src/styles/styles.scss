@@ -1,0 +1,108 @@
+@use "layout";
+@use "login";
+@use "sign-up";
+@use "home";
+@use "income";
+@use "expenses";
+@use "income-expenses";
+@use "income-add";
+@use "income-edit";
+@use "expenses-add";
+@use "expenses-edit";
+@use "income-expenses-add";
+@use "income-expenses-edit";
+
+@font-face {
+  font-family: 'Roboto Medium';
+  src: url('../static/fonts/Roboto-Medium.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto Regular';
+  src: url('../static/fonts/Roboto-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto Bold';
+  src: url('../static/fonts/Roboto-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto Medium', sans-serif;
+  color: #052C65;
+}
+
+.error404 {
+  font-family: 'Roboto Regular', sans-serif;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 40px;
+  color: #290661;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 28px;
+  color: #290661;
+}
+
+.button-gray {
+  margin-bottom: 40px;
+
+  .btn {
+    width: 100px;
+
+    &:hover,
+    &:focus {
+      color: #ffffff;
+    }
+
+    &.active {
+      color: #ffffff;
+    }
+  }
+
+  .interval {
+    span {
+      font-size: 16px;
+      line-height: 19px;
+      letter-spacing: 0.457143px;
+      color: #000000;
+    }
+  }
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.45);
+  display: none;
+  //display: block;
+
+  .modal-dialog {
+    max-width: 530px;
+    width: 100%;
+  }
+
+  .modal-content {
+    padding: 40px;
+
+    .confirmation {
+      font-size: 20px;
+      line-height: 23px;
+      color: #290661;
+    }
+
+    .btn-popup {
+      font-size: 14px;
+      color: #FFFFFF;
+      padding: 11px 16px;
+    }
+  }
+}

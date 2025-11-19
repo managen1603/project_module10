@@ -1,0 +1,67 @@
+.container-expenses {
+  .title {
+    margin-bottom: 40px;
+  }
+
+  .income {
+    .item-block {
+      border: 1px solid #CED4DA;
+      border-radius: 10px;
+      width: 352px;
+      height: 121px;
+
+      .title-block {
+        margin-bottom: 10px;
+      }
+
+      .button-income {
+        .btn {
+          font-size: 14px;
+          line-height: 16px;
+          color: #FFFFFF;
+          padding: 11px 16px;
+        }
+      }
+    }
+
+    .item-block-add {
+      border: 1px solid #CED4DA;
+      border-radius: 10px;
+      width: 352px;
+      height: 121px;
+      a {
+        font-size: 28px;
+        color: #CED4DA;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  //.modal-expenses {
+  //  background-color: rgba(0, 0, 0, 0.45);
+  //  //display: none;
+  //  display: block;
+  //
+  //  .modal-dialog {
+  //    max-width: 530px;
+  //    width: 100%;
+  //  }
+  //
+  //  .modal-content {
+  //    padding: 40px;
+  //
+  //    .confirmation {
+  //      font-size: 20px;
+  //      line-height: 23px;
+  //      color: #290661;
+  //    }
+  //
+  //    .btn-popup {
+  //      font-size: 14px;
+  //      color: #FFFFFF;
+  //      padding: 11px 16px;
+  //    }
+  //  }
+  //}
+}

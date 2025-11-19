@@ -1,0 +1,26 @@
+.container {
+  .form-signup {
+    input::placeholder {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 15px;
+      color: #6C757D;
+    }
+
+    .btn-signup {
+      font-size: 15px !important;
+    }
+
+    .log-system {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 12px;
+      line-height: 14px;
+      color: #000000;
+    }
+
+    .error-signup {
+      padding-left: 55px;
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 12px;
+    }
+  }
+}
