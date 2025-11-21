@@ -160,11 +160,16 @@ export class Router {
     async activateRoute() {
         const urlRoute = window.location.pathname;
 
-        const token = localStorage.getItem('accessToken');
+        const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
         const publicRoutes = ['/login', '/sign-up'];
 
         if (!token && !publicRoutes.includes(urlRoute)) {
             window.history.replaceState({}, '', '/login');
+            return this.activateRoute();
+        }
+
+        if (token && ['/login', '/sign-up'].includes(urlRoute)) {
+            window.history.replaceState({}, '', '/');
             return this.activateRoute();
         }
 

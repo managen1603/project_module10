@@ -6,6 +6,7 @@ import {autoLogin} from "../utils/utils-auth";
 export class SignUp {
 
     constructor() {
+        console.log('SIGNUP');
 
         this.btnSignUp = document.querySelector('.btn-signup');
 
@@ -58,6 +59,7 @@ export class SignUp {
             setError(this.emailInput, this.emailError);
             isValid = false;
         }
+
         if (validators.isEmpty(this.passwordInput.value)) {
             setError(this.passwordInput, this.passwordError);
             isValid = false;
@@ -84,7 +86,7 @@ export class SignUp {
                 this.repeatPasswordInput.value
             );
 
-            console.log('Пользователь зарегистрирован:', data.user); // для себя
+            console.log('Пользователь зарегистрирован:', data.user);
 
             await autoLogin(this.emailInput.value, this.passwordInput.value);
 

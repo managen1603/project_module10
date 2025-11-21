@@ -5,6 +5,7 @@ import {autoLogin} from "../utils/utils-auth";
 export class Login {
 
     constructor() {
+        console.log('LOGIN'); // для себя
 
         this.formLogin = document.querySelector('.form-login');
         this.btnLogin = document.querySelector('.btn-login');
@@ -48,12 +49,13 @@ export class Login {
 
         if (!isValid) return;
 
-        console.log("Проверка пользователя"); // для себя
+        console.log("OK! Проверяем пользователя…"); // для себя
 
         try {
-            await autoLogin(this.emailInput.value, this.passwordInput.value);
+            const rememberMe = document.getElementById('flexCheckDefault').checked;
+            const loginData = await autoLogin(this.emailInput.value, this.passwordInput.value, rememberMe);
         } catch (err) {
-            setError(this.emailInput, this.emailError);
+            this.generalError.classList.remove('d-none');
             console.error(err);
         }
     }

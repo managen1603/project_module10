@@ -5,6 +5,9 @@ export class Layout {
     constructor() {
         this.renderUserInfo();
         this.initProfileMenu();
+
+        this.initCategories();
+        this.highlightActiveMenu();
     }
 
     renderUserInfo() {
@@ -22,17 +25,14 @@ export class Layout {
         const menu = profileBlock.querySelector('.profile-menu');
         const logoutBtn = menu.querySelector('a');
 
-        // Показываем меню при наведении
         profileBlock.addEventListener('mouseenter', () => {
             menu.classList.remove('d-none');
         });
 
-        // Прячем меню, когда мышь ушла
         profileBlock.addEventListener('mouseleave', () => {
             menu.classList.add('d-none');
         });
 
-        // Обработчик выхода
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             localStorage.removeItem('accessToken');
@@ -41,4 +41,56 @@ export class Layout {
             window.dispatchEvent(new Event('popstate'));
         });
     }
+
+    initCategories() {
+        const toggle = document.getElementById('categories-toggle');
+        const wrapper = document.querySelector('.categories-wrapper');
+        const sub = document.querySelector('.categories-sub');
+        const links = document.querySelectorAll('.nav-link[href]');
+
+        if (!toggle || !sub || !wrapper) return;
+
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            sub.classList.toggle('d-none');
+
+            wrapper.classList.toggle('active-block');
+
+            const icon = toggle.querySelector('i');
+            icon.classList.toggle('bi-chevron-right');
+            icon.classList.toggle('bi-chevron-down');
+
+            links.forEach(link => link.classList.remove('active'));
+        });
+    }
+
+    highlightActiveMenu() {
+        const links = document.querySelectorAll('.nav-link[href]');
+        const wrapper = document.querySelector('.categories-wrapper');
+        const sub = document.querySelector('.categories-sub');
+        const toggle = document.getElementById('categories-toggle');
+
+        links.forEach(link => {
+            if (link.getAttribute('href') === window.location.pathname) {
+
+                link.classList.add('active');
+
+                if (sub && sub.contains(link)) {
+                    sub.classList.remove('d-none');
+
+                    wrapper.classList.add('active-block');
+
+                    const icon = toggle.querySelector('i');
+                    icon.classList.remove('bi-chevron-right');
+                    icon.classList.add('bi-chevron-down');
+                }
+
+                if (link === toggle) {
+                    wrapper.classList.add('active-block');
+                }
+            }
+        });
+    }
 }
+

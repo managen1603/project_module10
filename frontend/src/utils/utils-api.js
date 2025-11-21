@@ -7,7 +7,7 @@ export async function loginUser(email, password, rememberMe = false) {
         body: JSON.stringify({ email, password, rememberMe })
     });
     if (!response.ok) throw new Error('Ошибка авторизации');
-    return response.json();
+    return response.json(); // возвращает tokens и user
 }
 
 export async function signUpUser(name, lastName, email, password, passwordRepeat) {
@@ -17,5 +17,5 @@ export async function signUpUser(name, lastName, email, password, passwordRepeat
         body: JSON.stringify({ name, lastName, email, password, passwordRepeat })
     });
     if (!response.ok) throw new Error('Ошибка регистрации');
-    return response.json();
+    return response.json(); // возвращает user
 }
