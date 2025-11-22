@@ -1,33 +1,33 @@
 <div class="container d-flex justify-content-center align-items-center flex-column" style="height: 100vh">
 
     <div class="mb-5">
-        <img src="/images/logo.png" alt="Логотип" class="d-flex">
+        <img src="/images/logo.svg" alt="Логотип" class="d-flex">
     </div>
 
     <h1 class="d-flex mb-4">Вход</h1>
 
-    <div class="form-signup col-md-6" style="max-width: 397px">
+    <div class="form-login-block col-md-6" style="max-width: 397px">
 
-        <form class="login-form">
+        <form class="form-login">
 
-            <div class="error-login-second text-danger mb-2 text-center">Неверный email или пароль</div>
+            <div class="error-login-second text-danger mb-2 text-center d-none">Неверный email или пароль</div>
 
             <div class="mb-2">
                 <div class="input-group mb-1">
                     <span class="input-group-text"><i class="bi bi-envelope-open d-flex"></i></span>
-                    <input type="email" class="form-control is-invalid" placeholder="Электронная почта"
+                    <input type="email" class="form-control" placeholder="Электронная почта"
                            aria-label="Электронная почта" name="email" id="email" autocomplete="email">
                 </div>
-                <div class="error-login text-danger mb-2">Введите правильный пароль</div>
+                <div class="error-login text-danger mb-2 d-none">Введите правильный e-mail</div>
             </div>
 
             <div class="mb-2">
                 <div class="input-group mb-1">
                     <span class="input-group-text"><i class="bi bi-lock d-flex"></i></span>
-                    <input type="password" class="form-control is-invalid" placeholder="Пароль"
+                    <input type="password" class="form-control" placeholder="Пароль"
                            aria-label="Пароль" name="password" id="password" autocomplete="current-password">
                 </div>
-                <div class="error-login text-danger mb-2">Введите правильный пароль</div>
+                <div class="error-login text-danger mb-2 d-none">Введите правильный пароль</div>
             </div>
 
             <div class="form-check">
@@ -41,13 +41,13 @@
 
 
         <div class="d-grid mt-3 mb-2">
-            <button type="button" class="btn-signup btn btn-primary py-2 fs-5">
+            <button type="button" class="btn-login btn btn-primary py-2 fs-5">
                 Войти
             </button>
         </div>
 
 
-        <div class="d-flex log-system">
+        <div class="d-flex link-login">
             <p>Еще нет аккаунта?
                 <a href="/sign-up" class="text-primary text-decoration-none">Пройдите регистрацию</a>
             </p>

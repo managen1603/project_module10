@@ -1,20 +1,64 @@
-.login-form {
-  .error-login-second {
-    font-family: 'Roboto Regular', sans-serif;
-    font-size: 12px;
-  }
+.container {
+  .form-login-block {
 
-  .error-login {
-    padding-left: 55px;
-    font-family: 'Roboto Regular', sans-serif;
-    font-size: 12px;
-  }
+    input {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 15px;
+      color: #052C65;
+    }
 
-  .form-check {
-    .form-check-label {
+    input::placeholder {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 15px;
+      color: #6C757D;
+    }
+
+    .btn-login {
+      font-size: 15px !important;
+    }
+
+    .link-login {
       font-family: 'Roboto Regular', sans-serif;
       font-size: 12px;
+      line-height: 14px;
       color: #000000;
+    }
+
+    .error-login-second {
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 12px;
+    }
+
+    .error-login {
+      padding-left: 55px;
+      font-family: 'Roboto Regular', sans-serif;
+      font-size: 12px;
+    }
+
+    .form-check {
+      .form-check-label {
+        font-family: 'Roboto Regular', sans-serif;
+        font-size: 12px;
+        color: #000000;
+      }
+    }
+
+    /* 🔵 Удаление голубого фона, добавляемой браузером по умолчанию при автозаполнении */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+      box-shadow: 0 0 0 1000px #fff inset !important;
+      -webkit-text-fill-color: #052C65 !important;
+      transition: background-color 9999s ease-in-out 0s;
+    }
+
+    /* 🔵 Удаление голубой рамки при фокусе, добавляемой браузером по умолчанию */
+    input:focus {
+      outline: none !important; // убираем стандартный outline
+      box-shadow: none !important; // убираем синее свечение вокруг инпута
+      border-color: #ced4da !important; // устанавливаем серую рамку Bootstrap при ФОКУСЕ
     }
   }
 }

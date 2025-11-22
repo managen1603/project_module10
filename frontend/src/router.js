@@ -1,7 +1,7 @@
-import { Home } from "./components/home";
-import { Login } from "./components/login";
-import { SignUp } from "./components/sign-up";
-import { IncomeExpenses } from "./components/income-expenses";
+import {Home} from "./components/home";
+import {Login} from "./components/login";
+import {SignUp} from "./components/sign-up";
+import {IncomeExpenses} from "./components/income-expenses";
 import {Income} from "./components/income";
 import {Expenses} from "./components/expenses";
 import {IncomeExpensesEdit} from "./components/income-expenses-edit";
@@ -10,6 +10,7 @@ import {ExpensesEdit} from "./components/expenses-edit";
 import {ExpensesAdd} from "./components/expenses-add";
 import {IncomeEdit} from "./components/income-edit";
 import {IncomeAdd} from "./components/income-add";
+import {Layout} from "./components/layout";
 
 export class Router {
     constructor() {
@@ -17,6 +18,8 @@ export class Router {
         this.contentPageElement = document.getElementById('content');
 
         this.initEvents();
+        this.initLinkClicks();
+
         this.routes = [
             {
                 route: '/',
@@ -39,6 +42,7 @@ export class Router {
                 filePathTemplate: '/templates/login.html',
                 useLayout: false,
                 load: () => {
+
                     new Login();
                 }
             },
@@ -140,8 +144,35 @@ export class Router {
         window.addEventListener('popstate', this.activateRoute.bind(this));
     }
 
+    initLinkClicks() {
+        document.body.addEventListener('click', (event) => {
+            const link = event.target.closest('a');
+            if (!link) return;
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('/')) {
+                event.preventDefault();
+                window.history.pushState({}, '', href);
+                window.dispatchEvent(new Event('popstate'));
+            }
+        });
+    }
+
     async activateRoute() {
         const urlRoute = window.location.pathname;
+
+        const token = localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
+        const publicRoutes = ['/login', '/sign-up'];
+
+        if (!token && !publicRoutes.includes(urlRoute)) {
+            window.history.replaceState({}, '', '/login');
+            return this.activateRoute();
+        }
+
+        if (token && ['/login', '/sign-up'].includes(urlRoute)) {
+            window.history.replaceState({}, '', '/');
+            return this.activateRoute();
+        }
+
         const newRoute = this.routes.find(item => item.route === urlRoute);
 
         if (newRoute) {
@@ -153,6 +184,7 @@ export class Router {
                 if (newRoute.useLayout) {
                     this.contentPageElement.innerHTML = await fetch(newRoute.useLayout).then(response => response.text());
                     contentBlock = document.getElementById('content-layout');
+                    new Layout();
                 }
                 contentBlock.innerHTML = await fetch(newRoute.filePathTemplate).then(response => response.text());
             }
