@@ -1,15 +1,15 @@
-import { authorizedFetch } from "../utils/utils-api";
+import {authorizedFetch} from "../utils/utils-api";
 
-export class IncomeEdit {
+export class ExpenseEdit {
     constructor() {
-        this.container = document.querySelector('.container-income-edit');
-        this.input = this.container?.querySelector('#incomeName');
-        this.errorEl = this.container?.querySelector('.error-income-edit');
+        this.container = document.querySelector('.container-expense-edit');
+        this.input = this.container?.querySelector('#expenseName');
+        this.errorEl = this.container?.querySelector('.error-expense-edit');
         this.btnSave = this.container?.querySelector('.btn-success');
         this.btnCancel = this.container?.querySelector('.btn-danger');
 
         this.categoryId = this.getCategoryIdFromURL();
-        this.apiUrl = `http://localhost:3000/api/categories/income/${this.categoryId}`;
+        this.apiUrl = `http://localhost:3000/api/categories/expense/${this.categoryId}`;
 
         this.originalTitle = "";
 
@@ -23,16 +23,16 @@ export class IncomeEdit {
 
     async init() {
         if (!this.categoryId) {
-            alert('Не указан ID категории');
-            window.location.href = '/income';
+            alert('Не указан id категории');
+            window.location.href = '/expense';
             return;
         }
 
         await this.loadCategory();
 
-        this.btnSave?.addEventListener('click', () => this.saveCategory());
-        this.btnCancel?.addEventListener('click', () => {
-            window.location.href = '/income';
+        if (this.btnSave) this.btnSave.addEventListener('click', () => this.saveCategory());
+        if (this.btnCancel) this.btnCancel.addEventListener('click', () => {
+            window.location.href = '/expense';
         });
 
         this.input?.addEventListener('input', () => {
@@ -48,9 +48,9 @@ export class IncomeEdit {
             this.input.value = this.originalTitle;
 
         } catch (err) {
-            console.error('Ошибка загрузки категории:', err);
-            alert('Не удалось загрузить категорию');
-            window.location.href = '/income';
+            console.error('Ошибка загрузки категории расхода:', err);
+            alert('Не удалось загрузить категорию расхода');
+            window.location.href = '/expense';
         }
     }
 
@@ -59,21 +59,21 @@ export class IncomeEdit {
         this.errorEl?.classList.add('d-none');
 
         if (!title) {
-            this.errorEl.textContent = 'Введите название категории дохода';
+            this.errorEl.textContent = 'Введите название категории расхода';
             this.errorEl.classList.remove('d-none');
             return;
         }
 
         if (title === this.originalTitle) {
-            window.location.href = '/income';
+            window.location.href = '/expense';
             return;
         }
 
         let allCategories = [];
         try {
-            allCategories = await authorizedFetch("http://localhost:3000/api/categories/income");
+            allCategories = await authorizedFetch("http://localhost:3000/api/categories/expense");
         } catch (e) {
-            console.error("Ошибка загрузки категорий дохода:", e);
+            console.error("Ошибка загрузки категорий расхода:", e);
         }
 
         const exists = allCategories.some(cat =>
@@ -81,7 +81,7 @@ export class IncomeEdit {
         );
 
         if (exists) {
-            this.errorEl.textContent = 'Такая категория дохода уже создана';
+            this.errorEl.textContent = 'Такая категория расхода уже создана';
             this.errorEl.classList.remove('d-none');
             return;
         }
@@ -93,11 +93,11 @@ export class IncomeEdit {
                 body: JSON.stringify({ title })
             });
 
-            window.location.href = '/income';
+            window.location.href = '/expense';
         } catch (err) {
-            console.error('Ошибка обновления категории дохода:', err);
+            console.error('Ошибка обновления категории расхода:', err);
 
-            this.errorEl.textContent = 'Не удалось обновить категорию дохода';
+            this.errorEl.textContent = 'Не удалось обновить категорию расхода';
             this.errorEl.classList.remove('d-none');
         }
     }

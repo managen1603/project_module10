@@ -39,7 +39,7 @@
                         <a href="/income" class="d-flex align-items-center nav-link" style="border-radius: 0;">
                             <span class="d-flex">Доходы</span>
                         </a>
-                        <a href="/expenses" class="d-flex align-items-center nav-link" style="border-radius: 0;">
+                        <a href="/expense" class="d-flex align-items-center nav-link" style="border-radius: 0;">
                             <span class="d-flex">Расходы</span>
                         </a>
                     </div>
@@ -48,12 +48,12 @@
             </li>
         </ul>
 
-        <div class="balance d-flex align-content-center p-3">
-            <div class="info">Баланс:<span class="ms-2 text-primary">500$</span></div>
+        <div class="balance d-flex align-content-center p-3" id="balance">
+            <div class="info">Баланс:<span id="balance-amount" class="ms-2 text-primary"></span></div>
         </div>
 
         <div class="profile d-block p-3 pt-4 pb-5 border-top border-1">
-            <a href="#" class="d-flex align-items-center text-decoration-none">
+            <a href="javascript:void(0)" class="d-flex align-items-center text-decoration-none">
                 <img src="/images/user.png" class="img-circle me-3" alt="Пользователь">
                 <span>Имя Фамилия</span>
             </a>
@@ -66,6 +66,17 @@
     </div>
 
     <div class="content-layout b-example-divider b-example-vr flex-grow-1 w-100" id="content-layout"></div>
+
+    <div id="balance-modal" class="modal d-none">
+        <div class="modal-content">
+            <h3>Изменить баланс</h3>
+            <input type="number" id="balance-input" placeholder="Новый баланс">
+            <div class="modal-buttons">
+                <button id="balance-save">Сохранить</button>
+                <button id="balance-cancel">Отмена</button>
+            </div>
+        </div>
+    </div>
 
 </main>
 

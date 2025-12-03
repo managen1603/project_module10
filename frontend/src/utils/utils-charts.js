@@ -16,7 +16,7 @@ Chart.register(PieController, ArcElement, Legend, Tooltip, legendSpacingPlugin);
 let incomeChartInstance = null;
 let expensesChartInstance = null;
 
-export function renderIncomeExpensesCharts() {
+export function renderIncomeExpensesCharts(incomeData, expensesData) {
     const incomeCtx = document.getElementById('incomeChart');
     const expensesCtx = document.getElementById('expensesChart');
 
@@ -25,49 +25,52 @@ export function renderIncomeExpensesCharts() {
     if (incomeChartInstance) incomeChartInstance.destroy();
     if (expensesChartInstance) expensesChartInstance.destroy();
 
-    incomeChartInstance = new Chart(incomeCtx, {
-        type: 'pie',
-        data: {
-            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
-            datasets: [{
-                data: [500, 150, 350, 470, 210],
-                backgroundColor: ['#DC3545', '#FD7E14', '#FFC107', '#20C997', '#0D6EFD'],
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                legendSpacing: {
-                    extraSpace: 40
-                }
-            }
-        }
-    });
+    const incomeNoData = incomeCtx.parentElement.querySelector('.no-data');
+    const expensesNoData = expensesCtx.parentElement.querySelector('.no-data');
 
-    expensesChartInstance = new Chart(expensesCtx, {
-        type: 'pie',
-        data: {
-            labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
-            datasets: [{
-                data: [300, 500, 800, 400, 900],
-                backgroundColor: ['#DC3545', '#FD7E14', '#FFC107', '#20C997', '#0D6EFD'],
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                legendSpacing: {
-                    extraSpace: 40
+    if (incomeNoData) incomeNoData.style.display = incomeData.values.length ? 'none' : 'flex';
+    if (expensesNoData) expensesNoData.style.display = expensesData.values.length ? 'none' : 'flex';
+
+    if (incomeData.values.length) {
+        incomeChartInstance = new Chart(incomeCtx, {
+            type: 'pie',
+            data: {
+                labels: incomeData.labels,
+                datasets: [{
+                    data: incomeData.values,
+                    backgroundColor: ['#df515f', '#fd7e14', '#ffc107', '#20c997', '#2e80f7', '#df6db8', '#a4acbc', '#a1d465', '#00c0ff', '#b57beb', '#5cafce']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    legendSpacing: { extraSpace: 40 }
                 }
             }
-        }
-    });
+        });
+    }
+
+    if (expensesData.values.length) {
+        expensesChartInstance = new Chart(expensesCtx, {
+            type: 'pie',
+            data: {
+                labels: expensesData.labels,
+                datasets: [{
+                    data: expensesData.values,
+                    backgroundColor: ['#df515f', '#fd7e14', '#ffc107', '#20c997', '#2e80f7', '#df6db8', '#a4acbc', '#a1d465', '#00c0ff', '#b57beb', '#5cafce']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    legendSpacing: { extraSpace: 40 }
+                }
+            }
+        });
+    }
 }
+

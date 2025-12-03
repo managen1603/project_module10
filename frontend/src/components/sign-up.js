@@ -1,12 +1,11 @@
-import {validators} from '../utils/utils-validators';
-import {setError, clearError} from '../utils/utils-form-input';
-import {loginUser, signUpUser} from "../utils/utils-api";
-import {autoLogin} from "../utils/utils-auth";
+import { validators } from '../utils/utils-validators';
+import { setError, clearError } from '../utils/utils-form-input';
+import { signUpUser } from "../utils/utils-api";
+import { autoLogin } from "../utils/utils-auth";
 
 export class SignUp {
 
     constructor() {
-        console.log('SIGNUP');
 
         this.btnSignUp = document.querySelector('.btn-signup');
 
@@ -86,7 +85,7 @@ export class SignUp {
                 this.repeatPasswordInput.value
             );
 
-            console.log('Пользователь зарегистрирован:', data.user);
+            localStorage.setItem('user', JSON.stringify(data.user));
 
             await autoLogin(this.emailInput.value, this.passwordInput.value);
 

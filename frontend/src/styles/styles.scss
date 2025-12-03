@@ -3,12 +3,12 @@
 @use "sign-up";
 @use "home";
 @use "income";
-@use "expenses";
+@use "expense";
 @use "income-expenses";
 @use "income-add";
 @use "income-edit";
-@use "expenses-add";
-@use "expenses-edit";
+@use "expense-add";
+@use "expense-edit";
 @use "income-expenses-add";
 @use "income-expenses-edit";
 
@@ -59,14 +59,21 @@ h2 {
 
   .btn {
     width: 100px;
+    color: #6c757d;
+    background-color: transparent;
+    border: 1px solid #6c757d;
 
     &:hover,
     &:focus {
       color: #ffffff;
+      background-color: #6c757d;
+      border-color: #6c757d;
     }
 
     &.active {
+      background: #6c757d;
       color: #ffffff;
+      border-color: #6c757d;
     }
   }
 
@@ -81,28 +88,56 @@ h2 {
 }
 
 .modal {
-  background-color: rgba(0, 0, 0, 0.45);
+  position: fixed;      // фиксированная позиция на весь экран
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;        // поверх всего
   display: none;
-  //display: block;
 
   .modal-dialog {
     max-width: 530px;
-    width: 100%;
+    margin: 0;           // убираем отступы
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);     // по центру экрана
+
+    .modal-content {
+      background: #FFFFFF;
+      padding: 40px;
+
+      .confirmation {
+        font-size: 20px;
+        line-height: 23px;
+        color: #290661;
+      }
+
+      .btn-popup {
+        font-size: 14px;
+        color: #FFFFFF;
+        padding: 11px 16px;
+      }
+    }
   }
+}
 
-  .modal-content {
-    padding: 40px;
+.item-block {
+  border: 1px solid #CED4DA;
+  border-radius: 10px;
+  width: 352px;
+  min-height: 125px;              // чтобы маленькие блоки не сжимались
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
-    .confirmation {
-      font-size: 20px;
-      line-height: 23px;
-      color: #290661;
-    }
-
-    .btn-popup {
-      font-size: 14px;
-      color: #FFFFFF;
-      padding: 11px 16px;
-    }
+  .title-block {
+    font-size: 28px;
+    line-height: 31px;
+    margin-bottom: 15px;
+    word-break: break-word;       // перенос слов, если слишком длинные
   }
 }

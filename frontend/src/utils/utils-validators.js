@@ -12,10 +12,10 @@ export const validators = {
     },
 
     isName(value) {
-        return /^[А-ЯЁ][а-яё]+(?:\s[А-ЯЁ][а-яё]+)*$/.test(value);
+        return /^[А-ЯЁ][а-яё]+(?:\s[А-ЯЁа-яё][а-яё]*)*$/.test(value);
     },
 
     isLastName(value) {
-        return /^[А-ЯЁ][а-яё]+(?:\s[А-ЯЁ][а-яё]+)*$/.test(value);
+        return /^[А-ЯЁ][а-яё]+(?:\s[А-ЯЁа-яё][а-яё]*)*$/.test(value);
     }
 }
