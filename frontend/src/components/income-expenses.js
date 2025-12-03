@@ -131,7 +131,7 @@ export class IncomeExpenses {
             row.innerHTML = `
                 <td>${index + 1}</td>
                 <td>${op.type === 'income' ? "Доход" : "Расход"}</td>
-                <td>${op.category}</td>
+                <td>${op.category || "Без категории"}</td>
                 <td>${op.amount}</td>
                 <td>${op.date}</td>
                 <td>${op.comment || ""}</td>
