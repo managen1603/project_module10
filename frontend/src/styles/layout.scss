@@ -8,125 +8,102 @@
   height: 100vh;
   overflow: hidden;
 
-  .nav-link {
-    border-radius: 0.5rem;
-    transition: background-color .15s ease, color .15s ease;
-
-    &:hover {
-      background-color: #0d6efd !important;
-      color: #ffffff !important;
-
-      i {
-        color: #ffffff !important;
-      }
-    }
-
-    &.active {
-      background-color: #0d6efd !important;
-      color: #ffffff !important;
-
-      i {
-        color: #ffffff !important;
-      }
-    }
-  }
-
   .logo-sidebar {
     margin-top: 40px;
     padding-bottom: 27px;
   }
 
-  .nav {
-    padding-top: 60px;
-  }
-
   ul.nav {
-    li {
+    padding-top: 60px;
+    margin: 0 0 0 0;
+
+    li.nav-item {
       a.nav-link {
+        display: flex;
+        align-items: center;
         font-family: 'Roboto Regular', sans-serif;
         font-size: 14px;
         color: #052C65;
-        display: flex;
-        align-items: center;
+        border-radius: 0.5rem;
+        transition: background-color .15s ease, color .15s ease;
 
         i {
           color: #052C65;
         }
-      }
-    }
-  }
 
-  .nav-item {
-    .categories-wrapper {
-      border-radius: 0.5rem;
-      overflow: hidden;
-      border: none;
-      box-sizing: border-box;
-
-      &.active-block {
-        outline: 1px solid #0d6efd;
-        outline-offset: -1px;
-
-        #categories-toggle {
-          background-color: #0d6efd;
-          color: #ffffff;
-
-          i {
-            color: #ffffff;
-          }
-        }
-
-      }
-
-      #categories-toggle {
-        padding: 0.5rem 1rem;
-        display: flex;
-        align-items: center;
-
-        i {
-          transition: transform .2s ease, color .15s ease;
-          color: inherit;
-        }
-
-        &:hover {
-          background-color: #0d6efd;
-          color: #ffffff;
-
-          i {
-            color: #ffffff;
-          }
-        }
-
+        &:hover,
         &.active {
-          background-color: #0d6efd;
-          color: #ffffff;
+          background-color: #0d6efd !important;
+          color: #ffffff !important;
 
           i {
-            color: #ffffff;
+            color: #ffffff !important;
           }
         }
       }
 
-      .categories-sub {
+      .categories-wrapper {
         display: flex;
         flex-direction: column;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        border: none;
+        box-sizing: border-box;
 
-        &.d-none {
-          display: none !important;
-        }
+        &.active-block {
+          outline: 1px solid #0d6efd;
+          outline-offset: -1px;
 
-        a.nav-link {
-          border-radius: 0;
-          padding: 0.5rem 1rem;
-
-          &:hover {
+          #categories-toggle {
             background-color: #0d6efd;
             color: #ffffff;
+
+            i {
+              color: #ffffff;
+            }
+          }
+        }
+
+        #categories-toggle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.5rem 1rem;
+          border-radius: 0;
+
+          i {
+            transition: transform .2s ease, color .15s ease;
+            color: inherit;
           }
 
+          &:hover,
           &.active {
             background-color: #0d6efd;
             color: #ffffff;
+
+            i {
+              color: #ffffff;
+            }
+          }
+        }
+
+        .categories-sub {
+          display: flex;
+          flex-direction: column;
+
+          &.d-none {
+            display: none !important;
+          }
+
+          a.nav-link {
+            border-radius: 0;
+            padding: 0.5rem 1rem;
+
+            &:hover,
+            &.active {
+              background-color: #0d6efd;
+              color: #ffffff;
+            }
           }
         }
       }
@@ -136,13 +113,26 @@
   .balance {
     font-size: 14px;
     color: #052C65;
+    padding: 1rem;
+    cursor: pointer;
+
+    .info {
+      span {
+        color: #0d6efd;
+      }
+    }
   }
 
   .profile {
     position: relative;
     z-index: 1;
+    padding: 1rem 1rem 1.25rem;
 
     a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
       span {
         font-family: 'Roboto Regular', sans-serif;
         font-size: 14px;
@@ -158,11 +148,18 @@
       padding: 7px 12px;
       width: 150px;
       z-index: 2;
+      border-radius: 0.25rem;
+      background: #ffffff;
 
       a {
         font-family: 'Roboto Regular', sans-serif;
         font-size: 14px;
         color: #0d6efd;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -171,4 +168,80 @@
 .content-layout {
   margin-top: 100px;
   padding-right: 60px;
+  padding-bottom: 90px;
+}
+
+/* Модальное окно для баланса */
+#balance-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); // полупрозрачный фон #052C65
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  &.d-none {
+    display: none;
+  }
+
+  .modal-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 320px;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 1rem;
+      color: #052C65;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #D9D9D9;
+      border-radius: 0.25rem;
+      font-size: 14px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem; // заменяет margin у кнопок
+
+      button {
+        flex: 1;
+        padding: 0.5rem 1rem;
+        font-size: 14px;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color .2s ease;
+
+        &:first-child {
+          background-color: #0d6efd;
+          color: #ffffff;
+
+          &:hover {
+            background-color: #052C65;
+          }
+        }
+
+        &:last-child {
+          background-color: #D9D9D9;
+          color: #052C65;
+
+          &:hover {
+            background-color: #6c757d;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
 }

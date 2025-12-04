@@ -3,11 +3,11 @@ import {Login} from "./components/login";
 import {SignUp} from "./components/sign-up";
 import {IncomeExpenses} from "./components/income-expenses";
 import {Income} from "./components/income";
-import {Expenses} from "./components/expenses";
+import {Expense} from "./components/expense";
 import {IncomeExpensesEdit} from "./components/income-expenses-edit";
 import {IncomeExpensesAdd} from "./components/income-expenses-add";
-import {ExpensesEdit} from "./components/expenses-edit";
-import {ExpensesAdd} from "./components/expenses-add";
+import {ExpenseEdit} from "./components/expense-edit";
+import {ExpenseAdd} from "./components/expense-add";
 import {IncomeEdit} from "./components/income-edit";
 import {IncomeAdd} from "./components/income-add";
 import {Layout} from "./components/layout";
@@ -74,12 +74,12 @@ export class Router {
                 }
             },
             {
-                route: '/expenses',
+                route: '/expense',
                 title: 'Расходы',
-                filePathTemplate: '/templates/expenses.html',
+                filePathTemplate: '/templates/expense.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Expenses();
+                    new Expense();
                 }
             },
             {
@@ -101,21 +101,21 @@ export class Router {
                 }
             },
             {
-                route: '/expenses-add',
+                route: '/expense-add',
                 title: 'Создание категории расходов',
-                filePathTemplate: '/templates/expenses-add.html',
+                filePathTemplate: '/templates/expense-add.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpensesAdd();
+                    new ExpenseAdd();
                 }
             },
             {
-                route: '/expenses-edit',
+                route: '/expense-edit',
                 title: 'Редактирование категории расходов',
-                filePathTemplate: '/templates/expenses-edit.html',
+                filePathTemplate: '/templates/expense-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpensesEdit();
+                    new ExpenseEdit();
                 }
             },
             {

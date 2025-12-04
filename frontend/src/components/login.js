@@ -1,11 +1,10 @@
-import {validators} from '../utils/utils-validators';
-import {setError, clearError} from '../utils/utils-form-input';
-import {autoLogin} from "../utils/utils-auth";
+import { validators } from '../utils/utils-validators';
+import { setError, clearError } from '../utils/utils-form-input';
+import { autoLogin } from "../utils/utils-auth";
 
 export class Login {
 
     constructor() {
-        console.log('LOGIN'); // для себя
 
         this.formLogin = document.querySelector('.form-login');
         this.btnLogin = document.querySelector('.btn-login');
@@ -49,14 +48,17 @@ export class Login {
 
         if (!isValid) return;
 
-        console.log("OK! Проверяем пользователя…"); // для себя
+        console.log("OK! Проверяем пользователя…");
 
         try {
             const rememberMe = document.getElementById('flexCheckDefault').checked;
-            const loginData = await autoLogin(this.emailInput.value, this.passwordInput.value, rememberMe);
+
+            await autoLogin(this.emailInput.value, this.passwordInput.value, rememberMe);
+
         } catch (err) {
+            this.generalError.textContent = 'Неверный email или пароль';
             this.generalError.classList.remove('d-none');
-            console.error(err);
+            console.error('Ошибка входа:', err);
         }
     }
 }

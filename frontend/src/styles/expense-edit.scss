@@ -1,5 +1,5 @@
-.container-income-add {
-  .income-add {
+.container-expense-edit {
+  .expense-edit {
     margin-bottom: 20px;
 
     input {
@@ -7,15 +7,9 @@
       font-family: 'Roboto Regular', sans-serif;
       font-size: 14px;
       color: #052c65;
-
-      &::placeholder {
-        font-family: 'Roboto Regular', sans-serif;
-        font-size: 15px;
-        color: #6C757D;
-      }
     }
 
-    .error-income-add {
+    .error-expense-edit {
       font-family: 'Roboto Regular', sans-serif;
       font-size: 12px;
     }
